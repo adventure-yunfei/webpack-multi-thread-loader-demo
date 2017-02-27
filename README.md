@@ -2,6 +2,8 @@
 
 这是一个用于展示 Webpack 多进程并发可行性的 Demo。
 
+[相关介绍以及完善的HappyPack的实现参考我的另一个文档](http://blog.yunfei.me/blog/happypack_webpack_booster.html)
+
 # 实现介绍
 
 ### 测试 Loader 实现介绍
