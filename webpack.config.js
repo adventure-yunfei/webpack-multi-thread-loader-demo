@@ -1,6 +1,9 @@
+var useThreadLoader = process.env.MULTI_THREAD === 'true',
+    logSync = process.env.LOG_SYNC === 'true';
+
 module.exports = {
     entry: {
-        myentry: './files/entry.js'
+        myentry: './files/a.js'
     },
     output: {
         filename: '[name].js',
@@ -9,8 +12,7 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.js$/i,
-            // loader: require.resolve('./thread-loader-wrapper.js')
-            loader: require.resolve('./simple-loader.js')
+            loader: require.resolve(useThreadLoader ? './thread-loader-wrapper.js' : './simple-loader.js') + '?' + (logSync ? 'sync=true' : '')
         }]
     }
 };
